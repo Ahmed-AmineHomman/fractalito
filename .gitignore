@@ -55,3 +55,7 @@ Thumbs.db
 *.mov
 *.wmv
 
+# IDE folders
+venv/
+.idea/
+
