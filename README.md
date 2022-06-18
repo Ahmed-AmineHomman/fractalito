@@ -1,29 +1,22 @@
-# README #
+# Fractalito
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Fractalito is a lightweight command-line tool allowing you to compute beautiful fractals from various mathematical equations.
 
-### What is this repository for? ###
+**Warning**:  
+Fractalito is a project I made for fun, and is far from being the best fractal-producing software.
+I strongly recommend to use other softwares if you're looking for efficiency when computing fractals.
+You will find [here](https://fractalfoundation.org/resources/fractal-software/) a list of fractal computing softwares compiled by the [Fractal Foundation](https://fractalfoundation.org/).
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Getting started
 
-### How do I get set up? ###
+Clone this deposit on your system and install the dependencies by opening your favorite terminal in the folder where you cloned this deposit and typing the following command:
+```shell
+python -m pip install -r requirements.txt
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+**Remark**: if you do not wish to alter your main python interpreter, we recommend to use a virtual environment when installing Fractalito's dependencies.
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+You can then run the solution by executing the [`run.py`](run.py) script with your interpreter:
+```shell
+python run.py
+```
