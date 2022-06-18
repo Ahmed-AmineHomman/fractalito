@@ -20,3 +20,8 @@ You can then run the solution by executing the [`run.py`](run.py) script with yo
 ```shell
 python run.py
 ```
+
+The description of Fractalito's parameters can be obtained with the following command:
+```shell
+python run.py --help
+```
