@@ -1,0 +1,56 @@
+name = "Fractalito"
+description = """
+Welcome to Fractalito!
+
+This web app provides a simple, even simplistic, interface to produce beautiful fractals from mathematical equations.
+Experiment with all the parameters, run the simulation and see what you get!
+
+Fractals are build by solving a numerical equation where the (x, y) coordinates serve as initial conditions.
+If the simulation is divergent, the associated pixel is 0.
+If it is convergent, the associated pixel is 1.
+By solving the equation across the image plane, we can therefore compute a black & white image.
+"""
+
+# parameters section
+parameters_title = "Parameters"
+parameters_description = """
+Define here the parameters of the simulation.
+"""
+parameters_axis_description = """
+Define the x-axis and y-axis range of the image.
+
+Defining wider axis ranges allows to sample more regions in the parameter space, thus potentially finding more "fractal-esque" areas.
+However, such areas are known to be found around the center (0,0) point, so the probability of finding such areas away from this point are thin.
+"""
+parameters_xmin_label = "xmin"
+parameters_xmax_label = "xmax"
+parameters_ymin_label = "ymin"
+parameters_ymax_label = "ymax"
+parameters_resolution_description = """
+Define the pixel resolution of the image.
+
+Increasing the resolution allows to sample more precisely the considered range, thus producing sharper images with more detailed.
+However, the number of operations (and thus the computation time) scales quadratically with the resolution.
+"""
+parameters_xres_label = "width"
+parameters_yres_label = "heigth"
+parameters_boundary_description = """
+Define the divergence threshold & dual space sampling.
+
+The solver considers any solution crossing this threshold as divergent.
+If checked, the solver will sample the parameter space instead of the initial condition space.
+"""
+parameters_boundary_label = "Divergence Boundary"
+parameters_dual_label = "Sample dual space"
+parameters_dual_description = """
+Check to sample the dual space (i.e. the parameter space instead of the initial condition space)
+"""
+parameters_operator_description = """
+Define the operator of the equation to solve.
+
+The operator defines the equation whose solutions form the pixels of the end image.
+It has a strong influence on the convergence & divergence of each solution, and therefore influence a lot on the resulting fractal.
+"""
+parameters_operator_label = "Operator"
+compute_button_label = "Run"
+image_label = "Image"

@@ -1,10 +1,26 @@
 import numpy as np
 
-from .solver import Solver
+from .operators import Operator
 
 
-class BasicSolver(Solver):
-    def solve(self, limits, resolution, parameter, compute_dual=False):
+class Solver:
+    def __init__(
+            self,
+            operator: Operator,
+            max_iterations: int = 100,
+            boundary: float = 2.0
+    ):
+        self._operator = operator
+        self._max_iterations = max_iterations
+        self._boundary = boundary
+
+    def solve(
+            self,
+            limits,
+            resolution,
+            parameter,
+            compute_dual: bool = False
+    ):
         X, Y = np.meshgrid(
             np.linspace(*limits["x"], resolution["x"]),
             np.linspace(*limits["y"], resolution["y"])

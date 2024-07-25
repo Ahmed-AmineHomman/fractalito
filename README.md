@@ -16,12 +16,12 @@ python -m pip install -r requirements.txt
 
 **Remark**: if you do not wish to alter your main python interpreter, we recommend to use a virtual environment when installing Fractalito's dependencies.
 
-You can then run the solution by executing the [`run.py`](run.py) script with your interpreter:
+You can then run the solution by executing the [`run.py`](app.py) script with your interpreter:
 ```shell
-python run.py
+python app.py
 ```
 
 The description of Fractalito's parameters can be obtained with the following command:
 ```shell
-python run.py --help
+python app.py --help
 ```
