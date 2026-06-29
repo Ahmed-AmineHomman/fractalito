@@ -48,47 +48,49 @@ def build_ui() -> gr.Blocks:
     """Builds the UI"""
     with gr.Blocks() as app:
         gr.Markdown(f"# {UI.get('title')}\n\n{UI.get('description')}")
-        gr.Markdown(f"## {UI.get('parameters_title')}\n\n{UI.get('parameters_description')}")
-        with gr.Row(equal_height=True):
-            gr.Markdown(f"{UI.get('parameters_axis_description')}")
-            gr.Markdown(f"{UI.get('parameters_resolution_description')}")
-            gr.Markdown(f"{UI.get('parameters_boundary_description')}")
-            gr.Markdown(f"{UI.get('parameters_operator_description')}")
-        with gr.Row(equal_height=True):
-            with gr.Column(variant="default"):
+
+        with gr.Row():
+            with gr.Column(scale=2):
+                image = gr.Image(
+                    label=UI.get('image_label'),
+                    format="png",
+                    type="numpy",
+                    width=1024,
+                    height=1024
+                )
+            with gr.Column(scale=1):
+                button = gr.Button(
+                    value=UI.get('compute_button_label'),
+                    variant="primary"
+                )
+                gr.Markdown(f"## {UI.get('parameters_title')}\n\n{UI.get('parameters_description')}")
+                gr.Markdown(f"### {UI.get('parameters_operator_title')}\n\n{UI.get('parameters_operator_description')}")
+                with gr.Row(variant="default"):
+                    operator = gr.Dropdown(
+                        label=UI.get('parameters_operator_label'),
+                        choices=OperatorFactory.get_operators(),
+                        value=OperatorFactory.get_operators()[0]
+                    )
+                    boundary = gr.Number(label=UI.get('parameters_boundary_label'), value=2.0, precision=1)
+                    dual = gr.Checkbox(
+                        label=UI.get('parameters_dual_label'),
+                        info=UI.get("parameters_dual_description"),
+                        value=False
+                    )
+
+                gr.Markdown(f"### {UI.get('parameters_axis_title')}\n\n{UI.get('parameters_axis_description')}")
                 with gr.Row():
                     xmin = gr.Number(label=UI.get('parameters_xmin_label'), value=-2.0, precision=1)
                     xmax = gr.Number(label=UI.get('parameters_xmax_label'), value=2.0, precision=1)
                 with gr.Row():
                     ymin = gr.Number(label=UI.get('parameters_ymin_label'), value=-2.0, precision=1)
                     ymax = gr.Number(label=UI.get('parameters_ymax_label'), value=2.0, precision=1)
-            with gr.Column(variant="default"):
-                xres = gr.Number(label=UI.get('parameters_xres_label'), value=100, precision=0)
-                yres = gr.Number(label=UI.get('parameters_yres_label'), value=100, precision=0)
-            with gr.Column(variant="default"):
-                boundary = gr.Number(label=UI.get('parameters_boundary_label'), value=2.0, precision=1)
-                dual = gr.Checkbox(
-                    label=UI.get('parameters_dual_label'),
-                    info=UI.get("parameters_dual_description"),
-                    value=False
-                )
-            with gr.Column(variant="default"):
-                operator = gr.Dropdown(
-                    label=UI.get('parameters_operator_label'),
-                    choices=OperatorFactory.get_operators(),
-                    value=OperatorFactory.get_operators()[0]
-                )
-            button = gr.Button(
-                value=UI.get('compute_button_label'),
-                variant="primary"
-            )
-        image = gr.Image(
-            label=UI.get('image_label'),
-            format="png",
-            type="numpy",
-            width=1024,
-            height=1024
-        )
+
+                gr.Markdown(
+                    f"### {UI.get('parameters_resolution_title')}\n\n{UI.get('parameters_resolution_description')}")
+                with gr.Row(variant="default"):
+                    xres = gr.Number(label=UI.get('parameters_xres_label'), value=100, precision=0)
+                    yres = gr.Number(label=UI.get('parameters_yres_label'), value=100, precision=0)
 
         # UI logic
         button.click(
