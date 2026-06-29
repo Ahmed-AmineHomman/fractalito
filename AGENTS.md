@@ -27,7 +27,3 @@ The repo's virtual environment should be located at `./.venv`. Access it via `uv
 1. Analyse user request and eventually ask for clarifications (if needed prior to analysing codebase).
 2. Analyse task & codebase, and provide implementation plan.
 3. Apply modifications & test correct execution. Skip testing if local env has issues.
-
-## RTK logic
-
-@RTK.md
